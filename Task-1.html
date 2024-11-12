@@ -42,22 +42,40 @@
         padding: 5px;
         border: 1px solid black;
         border-radius: 5px;
+        margin-top: 5px;
       }
       h2 {
-        margin: 10px 0;
+        margin: 10px 0 5px 0;
+        font-weight: 100;
         font-size: 1.3rem;
       }
       .form .gender .inner-form {
         display: grid;
         grid-template-columns: auto auto auto auto;
       }
+
       button {
+        margin: 20px 0;
         width: 97%;
         font-size: 1.2rem;
         padding: 5px;
         border: 1px solid black;
         border-radius: 5px;
         background: linear-gradient(-45deg, #bf40bf, #23a6d5);
+        cursor: pointer;
+      }
+      #info-section {
+        margin-top: 20px;
+        display: none;
+      }
+      table {
+        width: 98%;
+        border-collapse: collapse;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid black;
       }
     </style>
   </head>
@@ -66,84 +84,150 @@
       <div class="registrationForm">
         <h1>Registration</h1>
         <div class="form">
-          <div class="details">
-            <div class="inner-form">
-              <div class="item">
-                <div>
-                  <label for="name">Full Name</label>
+          <form id="form-data">
+            <div class="details">
+              <div class="inner-form">
+                <div class="item">
+                  <div>
+                    <label for="name">Full Name</label>
+                  </div>
+                  <input type="text" id="name" placeholder="Enter Your Name" />
                 </div>
-                <input type="text" id="name" placeholder="Enter Your Name" />
-              </div>
-              <div class="item">
-                <div>
-                  <label for="username">Username</label>
+                <div class="item">
+                  <div>
+                    <label for="username">Username</label>
+                  </div>
+                  <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter Your Username"
+                  />
                 </div>
-                <input
-                  type="text"
-                  id="username"
-                  placeholder="Enter Your Username"
-                />
-              </div>
-              <div class="item">
-                <div>
-                  <label for="email">Email</label>
+                <div class="item">
+                  <div>
+                    <label for="email">Email</label>
+                  </div>
+                  <input
+                    type="text"
+                    id="email"
+                    placeholder="Enter Your Email"
+                  />
                 </div>
-                <input type="text" id="email" placeholder="Enter Your Email" />
-              </div>
-              <div class="item">
-                <div>
-                  <label for="phone">Phone Number</label>
+                <div class="item">
+                  <div>
+                    <label for="phone">Phone Number</label>
+                  </div>
+                  <input
+                    type="text"
+                    id="phone"
+                    placeholder="Enter Your Number"
+                  />
                 </div>
-                <input type="text" id="phone" placeholder="Enter Your Number" />
-              </div>
-              <div class="item">
-                <div>
-                  <label for="password">Password</label>
+                <div class="item">
+                  <div>
+                    <label for="password">Password</label>
+                  </div>
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter Your Password"
+                  />
                 </div>
-                <input
-                  type="password"
-                  id="password"
-                  placeholder="Enter Your Password"
-                />
-              </div>
-              <div class="item">
-                <div>
-                  <label for="con-password">Confirm Password</label>
-                </div>
-                <input
-                  type="password"
-                  id="con-password"
-                  placeholder="Confirm Your Password"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="gender">
-            <h2>Gender</h2>
-            <div class="inner-form">
-              <div class="item">
-                <div>
-                  <input type="radio" name="gender" id="male" />
-                  <label for="male">Male</label>
-                </div>
-              </div>
-              <div class="item">
-                <div>
-                  <input type="radio" name="gender" id="female" />
-                  <label for="male">Female</label>
-                </div>
-              </div>
-              <div class="item">
-                <div>
-                  <input type="radio" name="gender" id="not" />
-                  <label for="not">Prefer not to say</label>
+                <div class="item">
+                  <div>
+                    <label for="con-password">Confirm Password</label>
+                  </div>
+                  <input
+                    type="password"
+                    id="con-password"
+                    placeholder="Confirm Your Password"
+                  />
                 </div>
               </div>
             </div>
-          </div>
-          <button>Register</button>
+            <div class="gender">
+              <h2>Gender</h2>
+              <div class="inner-form">
+                <div class="item">
+                  <div>
+                    <input type="radio" name="gender" id="male" value="Male" />
+                    <label for="male">Male</label>
+                  </div>
+                </div>
+                <div class="item">
+                  <div>
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="female"
+                      value="Female"
+                    />
+                    <label for="female">Female</label>
+                  </div>
+                </div>
+                <div class="item">
+                  <div>
+                    <input
+                      type="radio"
+                      name="gender"
+                      id="not"
+                      value="Not to Say"
+                    />
+                    <label for="not">Prefer not to say</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="button" onclick="registration()">Registration</button>
+          </form>
+        </div>
+        <div id="info-section">
+          <table id="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+              </tr>
+            </thead>
+          </table>
         </div>
       </div>
     </div>
+    <script>
+      function registration() {
+        let info = document.getElementById("info-section");
+
+        info.style.display = "block";
+
+        let name = document.getElementById("name").value;
+        let userName = document.getElementById("username").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        // let gender = document.getElementById("gender").value;
+
+        const form = document.getElementById("form-data");
+        const gender = form.elements["gender"].value;
+
+        console.log(info);
+        // Create a new row and cells
+        const table = document.getElementById("table");
+        const newRow = table.insertRow();
+        const nameCell = newRow.insertCell(0);
+        const usernameCell = newRow.insertCell(1);
+        const emailCell = newRow.insertCell(2);
+        const phoneCell = newRow.insertCell(3);
+        const genderCell = newRow.insertCell(4);
+
+        // Add values to the cells
+        nameCell.textContent = name;
+        usernameCell.textContent = userName;
+        emailCell.textContent = email;
+        phoneCell.textContent = phone;
+        genderCell.textContent = gender;
+      }
+    </script>
   </body>
 </html>
