@@ -208,18 +208,18 @@
         let phone = document.getElementById("phone").value;
         // let gender = document.getElementById("gender").value;
 
-        const form = document.getElementById("form-data");
-        const gender = form.elements["gender"].value;
+        let form = document.getElementById("form-data");
+        let gender = form.elements["gender"].value;
 
         console.log(info);
         // Create a new row and cells
-        const table = document.getElementById("table");
-        const newRow = table.insertRow();
-        const nameCell = newRow.insertCell(0);
-        const usernameCell = newRow.insertCell(1);
-        const emailCell = newRow.insertCell(2);
-        const phoneCell = newRow.insertCell(3);
-        const genderCell = newRow.insertCell(4);
+        let table = document.getElementById("table");
+        let newRow = table.insertRow();
+        let nameCell = newRow.insertCell(0);
+        let usernameCell = newRow.insertCell(1);
+        let emailCell = newRow.insertCell(2);
+        let phoneCell = newRow.insertCell(3);
+        let genderCell = newRow.insertCell(4);
 
         // Add values to the cells
         nameCell.textContent = name;
